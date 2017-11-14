@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>粤语学习班</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">  
   <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
   <style>
     /* body{
@@ -21,7 +21,7 @@
       font-size: 20px;
       font-weight: 900;
       font-family: "Microsoft YaHei";
-      margin-bottom: 20px;
+      /* margin-bottom:; */
       margin-top: 40px;
     }
     .time{
@@ -36,7 +36,7 @@
     }
     .attend{
       width:100%;
-      height: 70px;
+      height: 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,16 +45,17 @@
     .attend_Num{
       padding-left:20px;
       color: #b5b0b0;
+      font-size: 15px;
     }
     .avatar_Img{
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-right: 20px;
+      padding-right: 10px;
     }
     .avatar_Img img{
-      width: 45px;
-      height: 45px;
+      width: 33px;
+      height: 33px;
       border-radius: 50%;
       margin-right: 5px;
     }
@@ -62,7 +63,7 @@
       text-decoration: line-through;
     }
     .attend_btn{
-      height: 70px;
+      height: 55px;
       width:100%;
       display: flex;
       justify-content: center;
@@ -76,8 +77,8 @@
     }
      .info_title{
       border-bottom: 1px solid #d0d0d0;
-      height: 60px;
-      font-size: 23px;
+      height: 50px;
+      font-size: 16px;
       padding-left:20px;
       display: flex;
       align-items: center;
@@ -89,16 +90,22 @@
       border-bottom: 1px solid #d0d0d0;
     }
      .course_price{
-      padding-right: 40px;
+      padding-right: 20px;
       color: #ff6767;
       display: flex;
     } 
      pre{
-      font-size:16px;
+       margin-top:5px;
+      font-size:13px;
       padding-left:15px;
       color:#676767;
       white-space: wrap;
-    } 
+    }
+    .people{
+      font-weight: 800;
+      font-size:14px;
+      margin-bottom: 5px;
+    }
 
   </style>
 </head>
@@ -108,8 +115,9 @@
      <div id="vid"></div>
     <div class="course_info">
     <div class="course">
-      <div class="course_name" >xxx课程</div>
-      <div class="time">时间 2017-11-14 20:00:00</div>
+      <div class="course_name" >TVB粤语学习班</div>
+      <div class="people">本期嘉宾: 古天乐</div>
+      <div class="time" id="time_one">时间 2017-11-14 20:00:00</div>
     </div>
     <div class="course_price"><div class="price">￥199</div>&nbsp;&nbsp;&nbsp;(限时免费)</div>
     </div>
@@ -124,24 +132,26 @@
     </div>
     <div class="info">
       <div class="info_title">课程介绍</div>
-              <div><pre>欢迎加入『TVB粤语学习班』    
+              <div><pre>  欢迎加入『TVB粤语学习班』    
   不知道各位朋友是不是有如下烦恼
   喜欢粤语歌曲，却听不懂唱不出。
   喜欢港剧，却只能看字幕，听配音。
   喜欢旅游，面对粤语又遇到交流障碍。
+  
   现在我们粤语学习班开班啦
+
   本期嘉宾古天乐，带你21天学会500句常用粤语。
   让你听得懂，说的出。
   粤说越开心，粤讲越有味。
   应付各种粤语场景
     
-课程安排
+  课程安排
   添加老师报名成功后，即可学习本期所有粤语课程。
   每天只需花费10分钟，自己安排时间。坚持21天即
   可学会500句常用粤语。不论是深圳行，还是游香港，
   看港剧，还是唱粤语歌曲，都能轻松应对。
          
-    课程限时免费报名中，赶紧加入！</pre></div>
+  课程限时免费报名中，赶紧加入！</pre></div>
     </div>
   </div>
   <button class="attend_btn" onclick="toQRcode()">
@@ -149,7 +159,8 @@
   </button>
   <script src="./zepto.min.js"></script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
-  <script type="text/javascript">
+  <script type="text/javascript">  
+  var nowdate;
    console.log(window.innerWidth);
    function toQRcode () {
     javascript:window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa2d6685113b9923e&redirect_uri=http%3A%2F%2Fsharex.dingjiantaoke.cn%2Fle%2Fshow%2F23&response_type=code&scope=snsapi_base&state=7f31c90bd0aed7b49d00ba5d62dbccc0#wechat_redirect"
@@ -162,14 +173,34 @@ window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=
      
    }
 
+   function getDate () {
+     var date = new Date();
+     var year = date.getFullYear();
+     var month = this.addZero(date.getMonth());
+     var day = this.addZero(date.getDate());
+
+     nowdate = year + '-'+month+ '-'+day;
+    document.getElementById('time_one').innerHTML= '时间 '+ '  ' +  nowdate;
+
+   }
+
+   function addZero (temp) {
+     if(temp < 10){
+       return '0' + temp;
+     } else {
+       return temp;
+     }
+   }
+
    $(function() {
+     this.getDate();
      var width = window.innerWidth;
      var _div = document.getElementById('vid');
-      _div.innerHTML='<iframe class="vid" id="vidPage" onclick="demo()" data-vidtype="2" allowfullscreen="" frameborder="0" data-ratio="1.7647058823529411" data-w="480" data-src="https://v.qq.com/iframe/player.html?vid=l0348fhl31c&amp;width=670&amp;height=2805&amp;auto=0" width="100px;" height="376.875" data-vh="376.875" data-vw="670" style="display: block; width: 100% !important; height: 280px !important; overflow: hidden;" src="https://v.qq.com/iframe/player.html?vid=l0348fhl31c&amp;width='+ width +'&amp;height=280&amp;auto=0" scrolling="no"></iframe>'
+      _div.innerHTML='<iframe class="vid"  data-vidtype="2" allowfullscreen="" frameborder="0" data-ratio="1.7647058823529411" data-w="480" data-src="https://v.qq.com/iframe/player.html?vid=l0348fhl31c&amp;width=670&amp;height=250&amp;auto=0" width="100px;" height="376.875" data-vh="376.875" data-vw="670" style="display: block; width: 100% !important; height: 250px !important; overflow: hidden;" src="https://v.qq.com/iframe/player.html?vid=l0348fhl31c&amp;width='+ width +'&amp;height=250&amp;auto=0" scrolling="no"></iframe>'
     setTimeout(function() {
       _div.innerHTML='<img src="./poster.png" class="vid">'
       this.disp_confirm();
-    },20000)
+    },30000)
 
    })
 
