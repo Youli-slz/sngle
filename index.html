@@ -65,9 +65,10 @@
     .attend_btn{
       height: 55px;
       width:100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      /* display: flex; */
+      /* justify-content: center; */
+      text-align: center;
+      /* align-items: center; */
       background-color: #ff6767;
       color: #fff;
       font-size:20px;
@@ -122,7 +123,7 @@
     <div class="course_price"><div class="price">￥199</div>&nbsp;&nbsp;&nbsp;(限时免费)</div>
     </div>
     <div class="attend">
-      <div class="attend_Num">报名人数  1570人</div>
+      <div class="attend_Num">报名人数  55570人</div>
       <div class="avatar_Img">
         <img src="https://oss.ririyuedu.com/tmp/wxb2de1aacb42e47df.o6zAJs6e4iQOHuo7DT2vSURT-cTg.cd88f09e2a02672ea699e0ad92cf62df.jpg"/>
         <img src="https://oss.ririyuedu.com/tmp/wxb2de1aacb42e47df.o6zAJs6e4iQOHuo7DT2vSURT-cTg.107470b8501fd130ea01053373d809bf.jpg"/>
@@ -167,7 +168,7 @@
    }
 
    function disp_confirm() {
-     weui.alert('请加入课程继续观看',function(){
+     weui.alert('课程内容较长，请添加课程老师进入正式班级免费学习哦',function(){
 window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa2d6685113b9923e&redirect_uri=http%3A%2F%2Fsharex.dingjiantaoke.cn%2Fle%2Fshow%2F23&response_type=code&scope=snsapi_base&state=7f31c90bd0aed7b49d00ba5d62dbccc0#wechat_redirect" 
      });
      
